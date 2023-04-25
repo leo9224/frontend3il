@@ -36,15 +36,6 @@
     background-color: white;
 }
 
-.crudListContainer button {
-    padding: 10px;
-    margin: 5px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: white;
-}
-
 .addButtonContainer {
     width: 100%;
     text-align: right;
