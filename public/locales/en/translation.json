@@ -1,0 +1,12 @@
+{
+  "separator": ": ",
+  "id already used": "ID already used",
+  "id": "ID",
+  "civilite": "Title",
+  "lname": "Last name",
+  "fname": "First name",
+  "email": "Email",
+  "id civilite": "Title ID",
+  "actions": "Actions",
+  "libelle": "Description"
+}

@@ -3,9 +3,11 @@ import './CiviliteForm.css'
 import {useNavigate, useParams} from "react-router-dom";
 import {Civilite} from "../Types/CiviliteType";
 import {IconSubmit} from "../Icons/Icons";
+import {useTranslation} from "react-i18next";
 
 function CiviliteForm() {
     const {id} = useParams();
+    const {t} = useTranslation();
     const navigate = useNavigate();
     const [civilite, setCivilite] = React.useState<Civilite | undefined>(undefined)
     const [civilitesIds, setCivilitesIds] = React.useState<number[]>([])
@@ -37,7 +39,7 @@ function CiviliteForm() {
         const body = JSON.stringify(jsonBody)
 
         if (jsonBody.id_civilite in civilitesIds && jsonBody.id_civilite !== civilite?.id) {
-            window.alert("id already use")
+            window.alert(t("id already used"))
             return
         }
 
@@ -66,12 +68,12 @@ function CiviliteForm() {
     }
 
     return (
-        <form id={"civiliteForm"} onSubmit={onSubmit}>
-            <label htmlFor="id_civilite">id:</label>
+        <form id={"civiliteForm"} action={"/civilites"} onSubmit={onSubmit}>
+            <label htmlFor="id_civilite">{t("id")}</label>
             <input type="number" id="id_civilite" name="id_civilite" required={true}
                    defaultValue={civilite === undefined ? undefined : civilite.id}/>
 
-            <label htmlFor="nom">libelle:</label>
+            <label htmlFor="nom">{t("libelle")}</label>
             <input type="text" id="nom" name="nom" required={true}
                    defaultValue={civilite === undefined ? undefined : civilite.libelle}/>
 

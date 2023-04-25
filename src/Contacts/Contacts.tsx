@@ -2,8 +2,10 @@ import React from "react";
 import {Contact} from "../Types/ContactType";
 import ContactsActions from "./ContactsActions";
 import {IconAdd} from "../Icons/Icons";
+import {useTranslation} from "react-i18next";
 
 function Contacts() {
+    const {t} = useTranslation();
     const [contacts, setContacts] = React.useState<Contact[]>([])
 
     React.useEffect(() => {
@@ -22,12 +24,12 @@ function Contacts() {
             <table>
                 <thead>
                 <tr>
-                    <th>id</th>
-                    <th>nom</th>
-                    <th>prenom</th>
-                    <th>email</th>
-                    <th>id_civilite</th>
-                    <th>actions</th>
+                    <th>{t("id")}</th>
+                    <th>{t("lname")}</th>
+                    <th>{t("fname")}</th>
+                    <th>{t("email")}</th>
+                    <th>{t("id civilite")}</th>
+                    <th>{t("actions")}</th>
                 </tr>
                 </thead>
                 <tbody>

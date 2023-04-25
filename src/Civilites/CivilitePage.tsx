@@ -1,9 +1,11 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 import {Civilite} from "../Types/CiviliteType";
+import {useTranslation} from "react-i18next";
 
 function CivilitePage() {
     const {id} = useParams();
+    const {t} = useTranslation();
     const [civilite, setCivilite] = React.useState<Civilite>()
 
     React.useEffect(() => {
@@ -14,8 +16,8 @@ function CivilitePage() {
 
     return (
         <div className={"crudItemContainer"}>
-            <p>{"id_civilite: " + civilite?.id}</p>
-            <p>{"libelle: " + civilite?.libelle}</p>
+            <p>{t("id") + t("separator") + civilite?.id}</p>
+            <p>{t("libelle") + t("separator") + civilite?.libelle}</p>
         </div>
     )
 }

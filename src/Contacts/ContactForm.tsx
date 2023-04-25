@@ -1,13 +1,14 @@
 import React from "react";
 import './ContactForm.css'
 import {Contact} from "../Types/ContactType";
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {Civilite} from "../Types/CiviliteType";
 import {IconSubmit} from "../Icons/Icons";
+import {useTranslation} from "react-i18next";
 
 function ContactForm() {
     const {id} = useParams();
-    const navigate = useNavigate();
+    const {t} = useTranslation();
     const [contact, setContact] = React.useState<Contact | undefined>(undefined)
     const [contactsIds, setContactsIds] = React.useState<number[]>([])
     const [civilites, setCivilites] = React.useState<Civilite[]>([])
@@ -26,7 +27,7 @@ function ContactForm() {
             .then(data => {
                 const ids: number[] = []
                 data.map((contact: Contact) => {
-                    ids.push(contact.id)
+                    return ids.push(contact.id)
                 })
                 setContactsIds(ids)
             })
@@ -49,7 +50,7 @@ function ContactForm() {
         const body = JSON.stringify(jsonBody)
 
         if (jsonBody.id_contact in contactsIds && jsonBody.id_contact !== contact?.id) {
-            window.alert("id already use")
+            window.alert(t("id already used"))
             return
         }
 
@@ -76,11 +77,11 @@ function ContactForm() {
 
     return (
         <form id={"contactForm"} action={"/contacts"} onSubmit={onSubmit}>
-            <label htmlFor="id_contact">id:</label>
+            <label htmlFor="id_contact">{t("id")}</label>
             <input type="number" id="id_contact" name="id_contact" required={true}
                    defaultValue={contact === undefined ? undefined : contact.id}/>
 
-            <label htmlFor="id_civilite">civilite:</label>
+            <label htmlFor="id_civilite">{t("civilite")}</label>
             <select name="id_civilite" id="id_civilite">
                 {civilites.sort((a, b) => a.id - b.id).map((civilite) => {
                     return <option key={civilite.id} value={civilite.id}
@@ -88,15 +89,15 @@ function ContactForm() {
                 })}
             </select>
 
-            <label htmlFor="nom">nom:</label>
+            <label htmlFor="nom">{t("lname")}</label>
             <input type="text" id="nom" name="nom" required={true}
                    defaultValue={contact === undefined ? undefined : contact.nom}/>
 
-            <label htmlFor="prenom">prenom:</label>
+            <label htmlFor="prenom">{t("fname")}</label>
             <input type="text" id="prenom" name="prenom" required={true}
                    defaultValue={contact === undefined ? undefined : contact.prenom}/>
 
-            <label htmlFor="email">email:</label>
+            <label htmlFor="email">{t("email")}</label>
             <input type="email" id="email" name="email" required={true}
                    defaultValue={contact === undefined ? undefined : contact.email}/>
 

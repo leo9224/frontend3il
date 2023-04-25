@@ -2,8 +2,10 @@ import React from "react";
 import {Civilite} from "../Types/CiviliteType";
 import CivilitesActions from "./CivilitesActions";
 import {IconAdd} from "../Icons/Icons";
+import {useTranslation} from "react-i18next";
 
 function Civilites() {
+    const {t} = useTranslation();
     const [civilites, setCivilites] = React.useState<Civilite[]>([])
 
     React.useEffect(() => {
@@ -22,9 +24,9 @@ function Civilites() {
             <table>
                 <thead>
                 <tr>
-                    <th>id</th>
-                    <th>libelle</th>
-                    <th>actions</th>
+                    <th>{t("id")}</th>
+                    <th>{t("libelle")}</th>
+                    <th>{t("actions")}</th>
                 </tr>
                 </thead>
                 <tbody>
