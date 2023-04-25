@@ -13,4 +13,4 @@ i18n
     }).then(response => console.log(response));
 
 
-export default i18n;
+export default i18n
