@@ -1,0 +1,8 @@
+#contactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#contactForm label, #contactForm input {
+    margin: 5px;
+}

@@ -1,0 +1,8 @@
+#civiliteForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#civiliteForm label, #civiliteForm input {
+    margin: 5px;
+}

@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Contacts from "./Contacts/Contacts";
+import './App.css'
+import Civilites from "./Civilites/Civilites";
+import ContactPage from "./Contacts/ContactPage";
+import CivilitePage from "./Civilites/CivilitePage";
+import ContactForm from "./Contacts/ContactForm";
+import CiviliteForm from "./Civilites/CiviliteForm";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/contacts" element={<Contacts/>}/>
+                <Route path={"/contacts/:id"} element={<ContactPage/>}/>
+                <Route path={"/contacts/new"} element={<ContactForm/>}/>
+                <Route path={"/contacts/:id/update"} element={<ContactForm/>}/>
+
+                <Route path="/civilites" element={<Civilites/>}/>
+                <Route path={"/civilites/:id"} element={<CivilitePage/>}/>
+                <Route path={"/civilites/new"} element={<CiviliteForm/>}/>
+                <Route path={"/civilites/:id/update"} element={<CiviliteForm/>}/>
+                {/*<Route path="*" element={<NoPage />} />*/}
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
