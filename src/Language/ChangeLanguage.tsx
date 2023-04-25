@@ -13,7 +13,7 @@ function ChangeLanguage() {
     }
 
     return (
-        <select onChange={onLanguageChange}>
+        <select id={"languageChooser"} onChange={onLanguageChange}>
             <option value={"en"} selected={language === "en"}>English</option>
             <option value={"fr"} selected={language === "fr"}>Français</option>
         </select>
