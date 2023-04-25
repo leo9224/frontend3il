@@ -13,7 +13,7 @@ function CivilitePage() {
     }, [])
 
     return (
-        <div>
+        <div className={"crudItemContainer"}>
             <p>{"id_civilite: " + civilite?.id}</p>
             <p>{"libelle: " + civilite?.libelle}</p>
         </div>

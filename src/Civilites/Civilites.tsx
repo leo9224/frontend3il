@@ -1,6 +1,7 @@
 import React from "react";
 import {Civilite} from "../Types/CiviliteType";
 import CivilitesActions from "./CivilitesActions";
+import {IconAdd} from "../Icons/Icons";
 
 function Civilites() {
     const [civilites, setCivilites] = React.useState<Civilite[]>([])
@@ -12,10 +13,12 @@ function Civilites() {
     }, [])
 
     return (
-        <div id={"civilitesContainer"}>
-            <a href={"/civilites/new"}>
-                <button>new</button>
-            </a>
+        <div id={"civilitesContainer"} className={"crudListContainer"}>
+            <div className={"addButtonContainer"}>
+                <a href={"/civilites/new"}>
+                    <button type={"button"}>{IconAdd}</button>
+                </a>
+            </div>
             <table>
                 <thead>
                 <tr>
@@ -28,7 +31,7 @@ function Civilites() {
                 {civilites.sort((a, b) => a.id - b.id).map((civilite) => {
                     return (
                         <tr key={civilite.id}>
-                            <td>{civilite.id}</td>
+                            <td><a href={"/civilites/" + civilite.id}>{civilite.id}</a></td>
                             <td>{civilite.libelle}</td>
                             <td><CivilitesActions id={civilite.id}/></td>
                         </tr>

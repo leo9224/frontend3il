@@ -2,6 +2,7 @@ import React from "react";
 import './CiviliteForm.css'
 import {useNavigate, useParams} from "react-router-dom";
 import {Civilite} from "../Types/CiviliteType";
+import {IconSubmit} from "../Icons/Icons";
 
 function CiviliteForm() {
     const {id} = useParams();
@@ -74,7 +75,7 @@ function CiviliteForm() {
             <input type="text" id="nom" name="nom" required={true}
                    defaultValue={civilite === undefined ? undefined : civilite.libelle}/>
 
-            <input type="submit" value="Submit"/>
+            <button type="submit">{IconSubmit}</button>
         </form>
     )
 }

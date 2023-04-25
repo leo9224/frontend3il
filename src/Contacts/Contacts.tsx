@@ -1,6 +1,7 @@
 import React from "react";
 import {Contact} from "../Types/ContactType";
 import ContactsActions from "./ContactsActions";
+import {IconAdd} from "../Icons/Icons";
 
 function Contacts() {
     const [contacts, setContacts] = React.useState<Contact[]>([])
@@ -12,10 +13,12 @@ function Contacts() {
     }, [])
 
     return (
-        <div id={"contactsContainer"}>
-            <a href={"/contacts/new"}>
-                <button>new</button>
-            </a>
+        <div id={"contactsContainer"} className={"crudListContainer"}>
+            <div className={"addButtonContainer"}>
+                <a href={"/contacts/new"}>
+                    <button type={"button"}>{IconAdd}</button>
+                </a>
+            </div>
             <table>
                 <thead>
                 <tr>

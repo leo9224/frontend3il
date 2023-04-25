@@ -1,4 +1,5 @@
 import React from "react";
+import {IconDelete, IconUpdate} from "../Icons/Icons";
 
 type ContactsActionsProps = {
     id: number
@@ -21,9 +22,9 @@ function ContactsActions({id}: ContactsActionsProps) {
     return (
         <div>
             <a href={"/contacts/" + id + "/update"}>
-                <button>update</button>
+                <button>{IconUpdate}</button>
             </a>
-            <button onClick={onDeleteButtonClick}>delete</button>
+            <button onClick={onDeleteButtonClick}>{IconDelete}</button>
         </div>
     )
 }

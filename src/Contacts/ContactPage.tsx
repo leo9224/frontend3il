@@ -15,7 +15,7 @@ function ContactPage() {
 
 
     return (
-        <div>
+        <div className={"crudItemContainer"}>
             <p>{"id_contact: " + contact?.id}</p>
             <p>{"nom: " + contact?.nom}</p>
             <p>{"prenom: " + contact?.prenom}</p>
