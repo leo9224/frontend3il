@@ -2,6 +2,7 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import {Civilite} from "../Types/CiviliteType";
 import {useTranslation} from "react-i18next";
+import CrudActions from "../CrudActions";
 
 function CivilitePage() {
     const {id} = useParams();
@@ -18,6 +19,7 @@ function CivilitePage() {
         <div className={"crudItemContainer"}>
             <p>{t("id") + t("separator") + civilite?.id}</p>
             <p>{t("libelle") + t("separator") + civilite?.libelle}</p>
+            {civilite !== undefined && <CrudActions id={civilite.id} endpoint={"/civilites"}/>}
         </div>
     )
 }

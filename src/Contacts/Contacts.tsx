@@ -1,8 +1,8 @@
 import React from "react";
 import {Contact} from "../Types/ContactType";
-import ContactsActions from "./ContactsActions";
 import {IconAdd} from "../Icons/Icons";
 import {useTranslation} from "react-i18next";
+import CrudActions from "../CrudActions";
 
 function Contacts() {
     const {t} = useTranslation();
@@ -41,7 +41,7 @@ function Contacts() {
                             <td>{contact.prenom}</td>
                             <td>{contact.email}</td>
                             <td><a href={"/civilites/" + contact.id_civilite}>{contact.id_civilite}</a></td>
-                            <td><ContactsActions id={contact.id}/></td>
+                            <td><CrudActions id={contact.id} endpoint={"/contacts"}/></td>
                         </tr>
                     )
                 })}

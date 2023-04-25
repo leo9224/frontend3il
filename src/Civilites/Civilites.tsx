@@ -1,8 +1,8 @@
 import React from "react";
 import {Civilite} from "../Types/CiviliteType";
-import CivilitesActions from "./CivilitesActions";
 import {IconAdd} from "../Icons/Icons";
 import {useTranslation} from "react-i18next";
+import CrudActions from "../CrudActions";
 
 function Civilites() {
     const {t} = useTranslation();
@@ -35,7 +35,7 @@ function Civilites() {
                         <tr key={civilite.id}>
                             <td><a href={"/civilites/" + civilite.id}>{civilite.id}</a></td>
                             <td>{civilite.libelle}</td>
-                            <td><CivilitesActions id={civilite.id}/></td>
+                            <td><CrudActions id={civilite.id} endpoint={"/civilites"}/></td>
                         </tr>
                     )
                 })}

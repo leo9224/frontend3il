@@ -1,8 +1,8 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 import {Contact} from "../Types/ContactType";
-import ContactsActions from "./ContactsActions";
 import {useTranslation} from "react-i18next";
+import CrudActions from "../CrudActions";
 
 function ContactPage() {
     const {id} = useParams();
@@ -23,7 +23,7 @@ function ContactPage() {
             <p>{t("fname") + t("separator") + contact?.prenom}</p>
             <p>{t("email") + t("separator") + contact?.email}</p>
             <p>{t("id civilite") + t("separator") + contact?.id_civilite}</p>
-            {contact !== undefined && <ContactsActions id={contact.id}/>}
+            {contact !== undefined && <CrudActions id={contact.id} endpoint={"/contacts"}/>}
         </div>
     )
 }

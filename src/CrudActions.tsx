@@ -1,11 +1,12 @@
 import React from "react";
-import {IconDelete, IconUpdate} from "../Icons/Icons";
+import {IconDelete, IconUpdate} from "./Icons/Icons";
 
-type CivilitesActionsProps = {
-    id: number
+type CrudActionsProps = {
+    id: number,
+    endpoint: string
 }
 
-function CivilitesActions({id}: CivilitesActionsProps) {
+function CrudActions({id, endpoint}: CrudActionsProps) {
     const onDeleteButtonClick = () => {
         const requestOptions = {
             method: 'DELETE',
@@ -13,7 +14,7 @@ function CivilitesActions({id}: CivilitesActionsProps) {
             body: JSON.stringify({})
         }
 
-        fetch(process.env.REACT_APP_API_ENDPOINT + '/civilites/' + id, requestOptions)
+        fetch(`${process.env.REACT_APP_API_ENDPOINT}${endpoint}/${id}`, requestOptions)
             .then(response => response.json())
 
         window.location.reload()
@@ -21,7 +22,7 @@ function CivilitesActions({id}: CivilitesActionsProps) {
 
     return (
         <div>
-            <a href={"/civilites/" + id + "/update"}>
+            <a href={`${endpoint}/${id}/update`}>
                 <button>{IconUpdate}</button>
             </a>
             <button onClick={onDeleteButtonClick}>{IconDelete}</button>
@@ -29,4 +30,4 @@ function CivilitesActions({id}: CivilitesActionsProps) {
     )
 }
 
-export default CivilitesActions
+export default CrudActions
