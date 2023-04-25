@@ -83,7 +83,8 @@ function ContactForm() {
             <label htmlFor="id_civilite">civilite:</label>
             <select name="id_civilite" id="id_civilite">
                 {civilites.sort((a, b) => a.id - b.id).map((civilite) => {
-                    return <option key={civilite.id} value={civilite.id}>{civilite.libelle}</option>
+                    return <option key={civilite.id} value={civilite.id}
+                                   selected={civilite.id === contact?.id_civilite}>{civilite.libelle}</option>
                 })}
             </select>
 
