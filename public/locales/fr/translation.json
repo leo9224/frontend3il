@@ -2,11 +2,11 @@
   "separator": " : ",
   "id already used": "ID déjà utilisé",
   "id": "ID",
-  "civilite": "Civilité",
-  "lname": "Nom",
-  "fname": "Prénom",
+  "title": "Civilité",
+  "last name": "Nom",
+  "first name": "Prénom",
   "email": "Email",
-  "id civilite": "ID civilité",
+  "title id": "ID civilité",
   "actions": "Actions",
-  "libelle": "Libellé"
+  "description": "Libellé"
 }

@@ -1,7 +1,7 @@
 export type Contact = {
     id: number,
-    nom: string,
-    prenom: string,
+    last_name: string,
+    first_name: string,
     email: string,
-    id_civilite: number
+    title_id: number
 }

@@ -25,10 +25,10 @@ function Contacts() {
                 <thead>
                 <tr>
                     <th>{t("id")}</th>
-                    <th>{t("lname")}</th>
-                    <th>{t("fname")}</th>
+                    <th>{t("last name")}</th>
+                    <th>{t("first name")}</th>
                     <th>{t("email")}</th>
-                    <th>{t("id civilite")}</th>
+                    <th>{t("title id")}</th>
                     <th>{t("actions")}</th>
                 </tr>
                 </thead>
@@ -37,10 +37,10 @@ function Contacts() {
                     return (
                         <tr key={contact.id}>
                             <td><a href={"/contacts/" + contact.id}>{contact.id}</a></td>
-                            <td>{contact.nom}</td>
-                            <td>{contact.prenom}</td>
+                            <td>{contact.last_name}</td>
+                            <td>{contact.first_name}</td>
                             <td>{contact.email}</td>
-                            <td><a href={"/civilites/" + contact.id_civilite}>{contact.id_civilite}</a></td>
+                            <td><a href={"/titles/" + contact.title_id}>{contact.title_id}</a></td>
                             <td><CrudActions id={contact.id} endpoint={"/contacts"}/></td>
                         </tr>
                     )

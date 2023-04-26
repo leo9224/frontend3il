@@ -2,11 +2,11 @@
   "separator": ": ",
   "id already used": "ID already used",
   "id": "ID",
-  "civilite": "Title",
-  "lname": "Last name",
-  "fname": "First name",
+  "title": "Title",
+  "last name": "Last name",
+  "first name": "First name",
   "email": "Email",
-  "id civilite": "Title ID",
+  "title id": "Title ID",
   "actions": "Actions",
-  "libelle": "Description"
+  "description": "Description"
 }

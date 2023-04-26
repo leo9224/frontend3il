@@ -2,11 +2,11 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Contacts from "./Contacts/Contacts";
 import './App.css'
-import Civilites from "./Civilites/Civilites";
+import Titles from "./Titles/Titles";
 import ContactPage from "./Contacts/ContactPage";
-import CivilitePage from "./Civilites/CivilitePage";
+import TitlePage from "./Titles/TitlePage";
 import ContactForm from "./Contacts/ContactForm";
-import CiviliteForm from "./Civilites/CiviliteForm";
+import TitleForm from "./Titles/TitleForm";
 
 function App() {
     return (
@@ -17,11 +17,10 @@ function App() {
                 <Route path={"/contacts/new"} element={<ContactForm/>}/>
                 <Route path={"/contacts/:id/update"} element={<ContactForm/>}/>
 
-                <Route path="/civilites" element={<Civilites/>}/>
-                <Route path={"/civilites/:id"} element={<CivilitePage/>}/>
-                <Route path={"/civilites/new"} element={<CiviliteForm/>}/>
-                <Route path={"/civilites/:id/update"} element={<CiviliteForm/>}/>
-                {/*<Route path="*" element={<NoPage />} />*/}
+                <Route path="/titles" element={<Titles/>}/>
+                <Route path={"/titles/:id"} element={<TitlePage/>}/>
+                <Route path={"/titles/new"} element={<TitleForm/>}/>
+                <Route path={"/titles/:id/update"} element={<TitleForm/>}/>
             </Routes>
         </BrowserRouter>
     );

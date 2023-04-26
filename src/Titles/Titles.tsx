@@ -1,23 +1,23 @@
 import React from "react";
-import {Civilite} from "../Types/CiviliteType";
+import {Title} from "../Types/TitleType";
 import {IconAdd} from "../Icons/Icons";
 import {useTranslation} from "react-i18next";
 import CrudActions from "../CrudActions";
 
-function Civilites() {
+function Titles() {
     const {t} = useTranslation();
-    const [civilites, setCivilites] = React.useState<Civilite[]>([])
+    const [titles, setTitles] = React.useState<Title[]>([])
 
     React.useEffect(() => {
-        fetch(process.env.REACT_APP_API_ENDPOINT + "/civilites")
+        fetch(process.env.REACT_APP_API_ENDPOINT + "/titles")
             .then(response => response.json())
-            .then(data => setCivilites(data))
+            .then(data => setTitles(data))
     }, [])
 
     return (
-        <div id={"civilitesContainer"} className={"crudListContainer"}>
+        <div id={"titlesContainer"} className={"crudListContainer"}>
             <div className={"addButtonContainer"}>
-                <a href={"/civilites/new"}>
+                <a href={"/titles/new"}>
                     <button type={"button"}>{IconAdd}</button>
                 </a>
             </div>
@@ -30,12 +30,12 @@ function Civilites() {
                 </tr>
                 </thead>
                 <tbody>
-                {civilites.sort((a, b) => a.id - b.id).map((civilite) => {
+                {titles.sort((a, b) => a.id - b.id).map((title) => {
                     return (
-                        <tr key={civilite.id}>
-                            <td><a href={"/civilites/" + civilite.id}>{civilite.id}</a></td>
-                            <td>{civilite.libelle}</td>
-                            <td><CrudActions id={civilite.id} endpoint={"/civilites"}/></td>
+                        <tr key={title.id}>
+                            <td><a href={"/titles/" + title.id}>{title.id}</a></td>
+                            <td>{title.description}</td>
+                            <td><CrudActions id={title.id} endpoint={"/titles"}/></td>
                         </tr>
                     )
                 })}
@@ -45,4 +45,4 @@ function Civilites() {
     )
 }
 
-export default Civilites
+export default Titles

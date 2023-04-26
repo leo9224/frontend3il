@@ -1,8 +1,8 @@
-#civiliteForm {
+#titleForm {
     display: flex;
     flex-direction: column;
 }
 
-#civiliteForm label, #civiliteForm input {
+#titleForm label, #titleForm input {
     margin: 5px;
 }

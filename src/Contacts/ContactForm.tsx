@@ -2,7 +2,7 @@ import React from "react";
 import './ContactForm.css'
 import {Contact} from "../Types/ContactType";
 import {useParams} from "react-router-dom";
-import {Civilite} from "../Types/CiviliteType";
+import {Title} from "../Types/TitleType";
 import {IconSubmit} from "../Icons/Icons";
 import {useTranslation} from "react-i18next";
 
@@ -11,7 +11,7 @@ function ContactForm() {
     const {t} = useTranslation();
     const [contact, setContact] = React.useState<Contact | undefined>(undefined)
     const [contactsIds, setContactsIds] = React.useState<number[]>([])
-    const [civilites, setCivilites] = React.useState<Civilite[]>([])
+    const [titles, setTitles] = React.useState<Title[]>([])
 
 
     React.useEffect(() => {
@@ -34,9 +34,9 @@ function ContactForm() {
     })
 
     React.useEffect(() => {
-        fetch(process.env.REACT_APP_API_ENDPOINT + "/civilites")
+        fetch(process.env.REACT_APP_API_ENDPOINT + "/titles")
             .then(response => response.json())
-            .then(data => setCivilites(data))
+            .then(data => setTitles(data))
     })
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -81,21 +81,21 @@ function ContactForm() {
             <input type="number" id="id_contact" name="id_contact" required={true}
                    defaultValue={contact === undefined ? undefined : contact.id}/>
 
-            <label htmlFor="id_civilite">{t("civilite")}</label>
+            <label htmlFor="id_civilite">{t("title")}</label>
             <select name="id_civilite" id="id_civilite">
-                {civilites.sort((a, b) => a.id - b.id).map((civilite) => {
-                    return <option key={civilite.id} value={civilite.id}
-                                   selected={civilite.id === contact?.id_civilite}>{civilite.libelle}</option>
+                {titles.sort((a, b) => a.id - b.id).map((title) => {
+                    return <option key={title.id} value={title.id}
+                                   selected={title.id === contact?.title_id}>{title.description}</option>
                 })}
             </select>
 
-            <label htmlFor="nom">{t("lname")}</label>
+            <label htmlFor="nom">{t("last name")}</label>
             <input type="text" id="nom" name="nom" required={true}
-                   defaultValue={contact === undefined ? undefined : contact.nom}/>
+                   defaultValue={contact === undefined ? undefined : contact.last_name}/>
 
-            <label htmlFor="prenom">{t("fname")}</label>
+            <label htmlFor="prenom">{t("first name")}</label>
             <input type="text" id="prenom" name="prenom" required={true}
-                   defaultValue={contact === undefined ? undefined : contact.prenom}/>
+                   defaultValue={contact === undefined ? undefined : contact.first_name}/>
 
             <label htmlFor="email">{t("email")}</label>
             <input type="email" id="email" name="email" required={true}
