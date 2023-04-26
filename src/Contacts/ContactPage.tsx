@@ -2,7 +2,7 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import {Contact} from "../Types/ContactType";
 import {useTranslation} from "react-i18next";
-import CrudActions from "../CrudActions";
+import CrudActions from "../Crud/CrudActions";
 
 function ContactPage() {
     const {id} = useParams();

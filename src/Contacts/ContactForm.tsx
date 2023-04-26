@@ -89,11 +89,11 @@ function ContactForm() {
                 })}
             </select>
 
-            <label htmlFor="nom">{t("last name")}</label>
+            <label htmlFor="nom">{t("last_name")}</label>
             <input type="text" id="nom" name="nom" required={true}
                    defaultValue={contact === undefined ? undefined : contact.last_name}/>
 
-            <label htmlFor="prenom">{t("first name")}</label>
+            <label htmlFor="prenom">{t("first_name")}</label>
             <input type="text" id="prenom" name="prenom" required={true}
                    defaultValue={contact === undefined ? undefined : contact.first_name}/>
 

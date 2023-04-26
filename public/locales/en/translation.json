@@ -3,10 +3,10 @@
   "id already used": "ID already used",
   "id": "ID",
   "title": "Title",
-  "last name": "Last name",
-  "first name": "First name",
+  "last_name": "Last name",
+  "first_name": "First name",
   "email": "Email",
-  "title id": "Title ID",
+  "title_id": "Title ID",
   "actions": "Actions",
   "description": "Description"
 }

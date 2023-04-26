@@ -1,5 +1,5 @@
 import React from "react";
-import {IconDelete, IconUpdate} from "./Icons/Icons";
+import {IconDelete, IconUpdate} from "../Icons/Icons";
 
 type CrudActionsProps = {
     id: number,
