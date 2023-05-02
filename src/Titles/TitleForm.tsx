@@ -1,6 +1,6 @@
 import React from "react";
 import './TitleForm.css'
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {Title} from "../Types/TitleType";
 import {IconSubmit} from "../Icons/Icons";
 import {useTranslation} from "react-i18next";
@@ -8,6 +8,7 @@ import {useTranslation} from "react-i18next";
 function TitleForm() {
     const {id} = useParams();
     const {t} = useTranslation();
+    const navigate = useNavigate();
     const [title, setTitle] = React.useState<Title | undefined>(undefined)
     const [titlesIds, setTitlesIds] = React.useState<number[]>([])
 
@@ -28,7 +29,7 @@ function TitleForm() {
                 })
                 setTitlesIds(ids)
             })
-    })
+    }, [])
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const jsonBody = {
@@ -62,11 +63,11 @@ function TitleForm() {
                 .then(response => response.json())
         }
 
-        window.location.reload()
+        navigate("/titles")
     }
 
     return (
-        <form id={"titleForm"} action={"/titles"} onSubmit={onSubmit}>
+        <form id={"titleForm"} onSubmit={onSubmit}>
             <label htmlFor="id_civilite">{t("id")}</label>
             <input type="number" id="id_civilite" name="id_civilite" required={true}
                    defaultValue={title === undefined ? undefined : title.id}/>

@@ -2,13 +2,14 @@ import React from "react";
 import {IconAdd} from "../Icons/Icons";
 import {useTranslation} from "react-i18next";
 import CrudActions from "./CrudActions";
+import {Link} from "react-router-dom";
 
 type CrudListProps = {
     keys: string[],
     endpoint: string,
-    foreignKeys: {
+    foreignKeys?: {
         [key: string]: string
-    } | null
+    }
 }
 
 type CrudListElement = {
@@ -23,7 +24,7 @@ function CrudList({keys, endpoint, foreignKeys}: CrudListProps) {
         fetch(process.env.REACT_APP_API_ENDPOINT + endpoint)
             .then(response => response.json())
             .then(data => setData(data))
-    }, [])
+    }, [endpoint])
 
     return (
         <div className={"crudListContainer"}>
@@ -47,11 +48,11 @@ function CrudList({keys, endpoint, foreignKeys}: CrudListProps) {
                         <tr key={title.id}>
                             {keys.map((key) => {
                                 if (key === "id")
-                                    return <td key={key}><a href={`${endpoint}/${title[key]}`}>{title[key]}</a></td>
-                                else if (foreignKeys !== null)
+                                    return <td key={key}><Link to={`${endpoint}/${title[key]}`}>{title[key]}</Link></td>
+                                else if (foreignKeys !== undefined)
                                     if (foreignKeys.hasOwnProperty(key))
-                                        return <td key={key}><a
-                                            href={`${foreignKeys[key]}/${title[key]}`}>{title[key]}</a></td>
+                                        return <td key={key}><Link
+                                            to={`${foreignKeys[key]}/${title[key]}`}>{title[key]}</Link></td>
 
                                 return <td key={key}>{title[key]}</td>
                             })}
