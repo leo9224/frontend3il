@@ -1,29 +1,33 @@
 import React from 'react';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import './App.css'
 import CrudList from "./Crud/CrudList";
-import ContactPage from "./Contacts/ContactPage";
-import TitlePage from "./Titles/TitlePage";
-import ContactForm from "./Contacts/ContactForm";
-import TitleForm from "./Titles/TitleForm";
+import CrudForm from "./Crud/CrudForm";
+import CrudElement from "./Crud/CrudElement";
 
 function App() {
-    const titleKeys = ["id", "description"]
-    const contactKeys = ["id", "last_name", "first_name", "email", "title_id"]
+    const titleEndpoint = "/titles"
+    const titleKeys = ["title_id", "description"]
+
+    const contactEndpoint = "/contacts"
+    const contactKeys = ["contact_id", "last_name", "first_name", "email", "title_id"]
     const contactForeignKeys = {title_id: "/titles"}
 
     return (
         <Routes>
-            <Route path="/contacts" element={<CrudList keys={contactKeys} endpoint={"/contacts"}
+            <Route path="/contacts" element={<CrudList keys={contactKeys} endpoint={contactEndpoint}
                                                        foreignKeys={contactForeignKeys}/>}/>
-            <Route path={"/contacts/:id"} element={<ContactPage/>}/>
-            <Route path={"/contacts/new"} element={<ContactForm/>}/>
-            <Route path={"/contacts/:id/update"} element={<ContactForm/>}/>
+            <Route path={"/contacts/:id"} element={<CrudElement keys={contactKeys} endpoint={contactEndpoint}
+                                                                foreignKeys={contactForeignKeys}/>}/>
+            <Route path={"/contacts/new"} element={<CrudForm keys={contactKeys} endpoint={contactEndpoint}
+                                                             foreignKeys={contactForeignKeys}/>}/>
+            <Route path={"/contacts/:id/update"} element={<CrudForm keys={contactKeys} endpoint={contactEndpoint}
+                                                                    foreignKeys={contactForeignKeys}/>}/>
 
-            <Route path="/titles" element={<CrudList keys={titleKeys} endpoint={"/titles"}/>}/>
-            <Route path={"/titles/:id"} element={<TitlePage/>}/>
-            <Route path={"/titles/new"} element={<TitleForm/>}/>
-            <Route path={"/titles/:id/update"} element={<TitleForm/>}/>
+            <Route path="/titles" element={<CrudList keys={titleKeys} endpoint={titleEndpoint}/>}/>
+            <Route path={"/titles/:id"} element={<CrudElement keys={titleKeys} endpoint={titleEndpoint}/>}/>
+            <Route path={"/titles/new"} element={<CrudForm keys={titleKeys} endpoint={titleEndpoint}/>}/>
+            <Route path={"/titles/:id/update"} element={<CrudForm keys={titleKeys} endpoint={titleEndpoint}/>}/>
         </Routes>
     );
 }

@@ -1,0 +1,13 @@
+#crudForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 85px;
+}
+
+#crudForm div, #crudForm button, #crudForm select {
+    margin: 5px;
+}
+
+#crudForm button {
+    margin-top: 10px;
+}

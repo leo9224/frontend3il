@@ -37,6 +37,9 @@ function CrudList({keys, endpoint, foreignKeys}: CrudListProps) {
                 <thead>
                 <tr>
                     {keys.map((key) => {
+                        if (key.includes("id") && !foreignKeys?.hasOwnProperty(key))
+                            return <th key={key}>{t("id")}</th>
+
                         return <th key={key}>{t(key)}</th>
                     })}
                     <th>{t("actions")}</th>
@@ -47,12 +50,21 @@ function CrudList({keys, endpoint, foreignKeys}: CrudListProps) {
                     return (
                         <tr key={title.id}>
                             {keys.map((key) => {
-                                if (key === "id")
-                                    return <td key={key}><Link to={`${endpoint}/${title[key]}`}>{title[key]}</Link></td>
-                                else if (foreignKeys !== undefined)
+
+                                if (foreignKeys !== undefined) {
                                     if (foreignKeys.hasOwnProperty(key))
                                         return <td key={key}><Link
                                             to={`${foreignKeys[key]}/${title[key]}`}>{title[key]}</Link></td>
+                                    else if (key.includes("id")) {
+                                        key = "id"
+                                        return <td key={key}><Link to={`${endpoint}/${title[key]}`}>{title[key]}</Link>
+                                        </td>
+                                    }
+                                } else if (key.includes("id")) {
+                                    key = "id"
+                                    return <td key={key}><Link to={`${endpoint}/${title[key]}`}>{title[key]}</Link></td>
+                                }
+
 
                                 return <td key={key}>{title[key]}</td>
                             })}

@@ -1,8 +1,0 @@
-#titleForm {
-    display: flex;
-    flex-direction: column;
-}
-
-#titleForm label, #titleForm input {
-    margin: 5px;
-}

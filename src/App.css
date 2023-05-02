@@ -3,8 +3,8 @@
     text-align: left;
 }
 
-.crudListContainer {
-    margin-top: 60px;
+.crudListContainer, .crudItemContainer {
+    margin-top: 70px;
 }
 
 .crudListContainer table {
