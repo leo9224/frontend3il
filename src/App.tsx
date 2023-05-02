@@ -11,7 +11,7 @@ function App() {
 
     const contactEndpoint = "/contacts"
     const contactKeys = ["contact_id", "last_name", "first_name", "email", "title_id"]
-    const contactForeignKeys = {title_id: "/titles"}
+    const contactForeignKeys = {title_id: titleEndpoint}
 
     return (
         <Routes>
