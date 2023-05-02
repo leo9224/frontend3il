@@ -33,7 +33,7 @@ function CrudElement({keys, endpoint, foreignKeys}: CrudElementProps) {
                     key = "id"
 
                 return (
-                    <p key={key}>{t(key) + t("separator") + (data !== undefined && data[key])}</p>
+                    <p key={key}>{t(key) + t("separator") + (data && data[key])}</p>
                 )
             })}
 
