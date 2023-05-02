@@ -3,6 +3,10 @@
     text-align: left;
 }
 
+.crudListContainer {
+    margin-top: 60px;
+}
+
 .crudListContainer table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
